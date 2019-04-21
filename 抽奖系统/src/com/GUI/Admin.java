@@ -11,8 +11,8 @@ import java.awt.*;
 import java.awt.event.*;
 
 class MyFrame extends JFrame {//管理员界面
-    public String name = "T";
-    public String word = "2";//初始账号及密码
+//    public String name;
+//    public String word;//初始账号及密码
 
     public void ui() {
         JFrame jf = new JFrame();
@@ -43,12 +43,13 @@ class MyFrame extends JFrame {//管理员界面
         jf.setLocation(530, 180);
         jf.pack();
         jf.setVisible(true);//添加组件及设计布局
+        jf.setAlwaysOnTop(true);
 
         button1.addActionListener(new ActionListener() {//添加监听器
             @Override
             public void actionPerformed(ActionEvent e) {
                 String s = new String(password.getPassword());
-                if (name.equals(text.getText()) && word.equals(s)) {
+                if (new Change().name.equals(text.getText()) && new Change().apass.equals(s)) {
                     label4.setText("登录成功！");
                     new Manage().manage();
                     jf.dispose();
